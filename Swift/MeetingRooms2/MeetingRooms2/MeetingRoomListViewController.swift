@@ -55,6 +55,14 @@ class MeetingRoomListViewController: UITableViewController {
 
         return cell
     }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return Array(meetingRooms.keys)[section]
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        let rowCount = Array(meetingRooms.values)[section].count
+        return "\(rowCount)"
+    }
     
 
     /*
