@@ -60,3 +60,41 @@ price032703 = couponDiscountClosure(157.6)
 price032703 = couponDiscountClosure2(157.6)
 price032703 = couponDiscountClosure3(157.6)
 price032703 = couponDiscountClosure4(157.6)
+
+func makeAdder (x:Int) -> (Int) -> Int {
+    func adder(a:Int) -> Int {
+        return x + a
+    }
+    return adder
+}
+func makeAdder2 (x:Int) -> (Int) -> Int {
+    let adder:(Int) -> Int = {
+        return $0 + x
+    }
+    return adder
+}
+func makeAdder3 (x:Int) -> (Int) -> Int {
+    return { $0 + x }
+}
+
+var add5 = makeAdder(x:5)
+var add10 = makeAdder(x:10)
+
+print(add5(2))
+print(add10(2))
+
+add5 = makeAdder2(x:5)
+add10 = makeAdder2(x:10)
+
+print(add5(2))
+print(add10(2))
+
+add5 = makeAdder3(x:5)
+add10 = makeAdder3(x:10)
+
+print(add5(2))
+print(add10(2))
+
+print(makeAdder3(x:5)(2))
+
+
