@@ -6,3 +6,16 @@
 
 
 - Objective-C의 Block, Java의 Lambda
+
+### 문법
+
+```swift
+{ (params) -> returnType in
+
+	statements
+
+}
+```
+
+- param은 이름이 아니라 위치로 참조해서 생략
+- returnType은 명확한 경우 생략
