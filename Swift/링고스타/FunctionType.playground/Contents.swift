@@ -95,6 +95,74 @@ add10 = makeAdder3(x:10)
 print(add5(2))
 print(add10(2))
 
-print(makeAdder3(x:5)(2))
+//print(makeAdder3(x:5)(2))
+
+//: Sesstion 5-6 map
+let transactions = [560.0, 321.5, 190.0, 672.8, 1190.0, 450.0]
+
+//func addVAT(source:Double) -> Double {
+//    return source * 1.1
+//}
+
+var vatPrices:[Double] = []
+
+for transaction in transactions {
+    vatPrices += [addVAT(source:transaction)]
+}
+
+let vatMapPrices = transactions.map({
+    transaction -> Double in
+    return transaction * 1.1
+})
+
+let vatMapPrice2 = transactions.map( { $0 * 1.1 })
+
+//: Session 5-7 filter
+
+var bigTransactions:[Double] = []
+
+for price in vatPrices {
+    if price >= 500 {
+    bigTransactions += [price]
+    }
+}
+
+let bigFilterTansactions = vatPrices.filter { $0 >= 500 }
+
+var meetingRooms:[String:Int] = ["Banksy":4, "Rivera":8, "Kahlo":8, "Picasso":10, "Cezanne":20, "Matisse":30 ]
+
+let members = 9
+
+// $0.0은 키 $0.1은 값
+let available = meetingRooms.filter{ $0.1 > members }
+
+print("\(available)")
+
+//: Session 5-8 sort
+
+func ascendantSort (sort1:Double, sort2:Double) -> Bool {
+    return sort1 > sort2
+}
+
+let sortedPrices = vatPrices.sorted(by:ascendantSort)
+let sortedPrices2 = vatPrices.sorted(by:{ sort1, sort2 in
+    return sort1 > sort2
+})
+let sortedPrices3 = vatPrices.sorted(by: { $0 > $1 })
+let sortedPrices4 = vatPrices.sorted(by: >)
+
+let sortedMeetingRooms = meetingRooms.sorted(by: { $0.1 > $1.1 })
+
+print("\(sortedMeetingRooms)")
+
+
+
+
+
+
+
+
+
+
 
 
