@@ -155,6 +155,18 @@ let sortedMeetingRooms = meetingRooms.sorted(by: { $0.1 > $1.1 })
 
 print("\(sortedMeetingRooms)")
 
+//: Session 5-9 reduce
+
+func priceSum (base:Double, adder:Double) -> Double {
+    return base + adder
+}
+var sum:Double = 0.0
+for price in vatPrices {
+    sum = priceSum(base: sum, adder: price)
+}
+print ("\(sum)")
+
+// 강의에서는 combine을 쓰는데 현재는 쓸 수 없다고 한다...
 
 
 
