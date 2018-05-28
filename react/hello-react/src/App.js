@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import MyName from './MyName';
+import Contact from './Contact'
 
 class App extends Component {
   render() {
     return (
-      <MyName name="리액트" />
+      <Contact/>
     );
   }
 }
